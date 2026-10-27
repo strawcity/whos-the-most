@@ -52,14 +52,6 @@ const questions = [
     kind: "number",
   },
   {
-    span: "year",
-    title: "Who has eaten the most spaghetti in 2026?",
-    prompt: "How many meters of spaghetti have you eaten in 2026?",
-    unit: "m",
-    direction: "higher",
-    kind: "number",
-  },
-  {
     span: "decade",
     title: "Who has slept the longest in the last 10 years?",
     prompt: "What's the longest you have slept in the last 10 years, in hours?",
@@ -82,15 +74,6 @@ const questions = [
     unit: "km",
     direction: "lower",
     kind: "number",
-  },
-  {
-    span: "decade",
-    title: "Who has rewatched a sitcom the most times in the last 10 years?",
-    prompt: "How many times have you rewatched your favorite sitcom in the last 10 years, all seasons? Name the show.",
-    unit: "times",
-    direction: "higher",
-    kind: "show",
-    detailLabel: "Name of the show",
   },
   {
     span: "decade",
