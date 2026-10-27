@@ -1,0 +1,364 @@
+:root {
+  --bg: #1a120b;
+  --ink: #f6efe4;
+  --muted: #cbbba8;
+  --line: rgba(246, 239, 228, 0.18);
+  --gold: #f5b942;
+  --gold-ink: #2a1c04;
+  --raise: rgba(246, 239, 228, 0.05);
+  --warn: #ffb4a2;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #1a120b;
+  color: var(--ink);
+}
+
+body {
+  font-family: Outfit, "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(ellipse at top, #2c1d12 0%, #1a120b 52%);
+}
+
+body[data-phase="pointing"] {
+  background:
+    radial-gradient(ellipse at top, #4a3010 0%, #1a120b 55%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--gold-ink);
+}
+
+.link-status {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0.4rem 1rem;
+  text-align: center;
+  font-weight: 700;
+  background: var(--gold);
+  color: var(--gold-ink);
+}
+
+.link-status:empty { display: none; }
+
+.screen {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 36px 56px 28px;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.mark,
+.eyebrow {
+  margin: 0;
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.stage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.chunk {
+  margin: 0.6rem 0 0;
+  color: var(--gold);
+  font-family: Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.question {
+  margin: 0.2em auto 0.35em;
+  max-width: 18em;
+  font-family: Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: clamp(2.8rem, 5.6vw, 5.6rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.quiet {
+  margin: 0.4rem auto 0;
+  max-width: 46rem;
+  color: var(--muted);
+  font-size: clamp(1.5rem, 2.8vw, 2.3rem);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.call {
+  margin: 0.1em auto 0.35em;
+  max-width: 11em;
+  color: var(--gold);
+  font-family: Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: clamp(3.6rem, 8vw, 7.4rem);
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.call.point {
+  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+  max-width: 18em;
+}
+
+.lobby {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  width: 100%;
+  margin-top: 12px;
+}
+
+.lobby > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.qr-card {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 16px;
+  border-radius: 28px;
+  background: white;
+}
+
+.qr-card img {
+  display: block;
+  width: min(360px, 70vw);
+  height: auto;
+}
+
+.url {
+  margin: 16px 0 0;
+  color: var(--ink);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  overflow-wrap: normal;
+  word-break: normal;
+  user-select: all;
+}
+
+.warn {
+  max-width: 36rem;
+  color: var(--warn);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  width: min(100%, 1100px);
+  margin-top: 18px;
+}
+
+.chip {
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  padding: 0.65rem 1.1rem;
+  font-size: clamp(1.45rem, 2.4vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.chip.in {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--gold-ink);
+}
+
+.chip.off { opacity: 0.38; }
+
+.count {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 1.55rem;
+  font-weight: 700;
+}
+
+.banner {
+  display: inline-block;
+  margin: 8px 0 0;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--gold-ink);
+  font-weight: 700;
+}
+
+.banner:empty { display: none; }
+
+.ranking,
+.recap {
+  list-style: none;
+  width: min(100%, 920px);
+  margin: 12px auto 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: calc(100dvh - 340px);
+  overflow: auto;
+  text-align: left;
+}
+
+.rank {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.55rem 1rem;
+  border-radius: 18px;
+  background: var(--raise);
+  font-size: 1.65rem;
+}
+
+.rank.winner {
+  background: var(--gold);
+  color: var(--gold-ink);
+  font-size: 2.25rem;
+}
+
+.place,
+.amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.show {
+  display: block;
+  font-size: 0.72em;
+  font-weight: 500;
+}
+
+.missing {
+  color: var(--muted);
+  font-size: 1.15rem;
+  text-align: center;
+}
+
+.recap li {
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 12px;
+  padding: 0.35rem 0;
+  font-size: 1.45rem;
+}
+
+.recap .n {
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.recap .q {
+  display: block;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.recap .a {
+  display: block;
+  font-weight: 700;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  bottom: 0;
+  margin-top: 18px;
+  padding-top: 18px;
+  background: linear-gradient(transparent, #1a120b 28%);
+}
+
+.primary,
+.ghost {
+  border-radius: 999px;
+  min-height: 72px;
+  padding: 0 28px;
+}
+
+.primary {
+  border: 0;
+  background: var(--gold);
+  color: var(--gold-ink);
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.ghost {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.status {
+  padding: 48px;
+  font-size: 1.4rem;
+}
+
+@media (max-width: 800px) {
+  .screen { padding: 24px 20px 20px; }
+  .controls { align-items: stretch; flex-direction: column; }
+  .primary, .ghost { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; }
+}

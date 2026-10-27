@@ -1,0 +1,265 @@
+:root {
+  --bg: #1a120b;
+  --ink: #f6efe4;
+  --muted: #cbbba8;
+  --line: rgba(246, 239, 228, 0.18);
+  --gold: #f5b942;
+  --gold-ink: #2a1c04;
+  --raise: rgba(246, 239, 228, 0.05);
+  --warn: #ffb4a2;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #1a120b;
+  color: var(--ink);
+}
+
+body {
+  font-family: Outfit, "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(ellipse at top, #2c1d12 0%, #1a120b 58%);
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button { cursor: pointer; }
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--gold-ink);
+}
+
+.link-status {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 0.45rem 1rem;
+  text-align: center;
+  font-weight: 700;
+  background: var(--gold);
+  color: var(--gold-ink);
+}
+
+.link-status:empty { display: none; }
+
+.phone {
+  width: min(100%, 520px);
+  margin: 0 auto;
+  padding:
+    max(28px, env(safe-area-inset-top))
+    20px
+    max(28px, env(safe-area-inset-bottom));
+  min-height: 100dvh;
+}
+
+.mark,
+.eyebrow {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.chunk {
+  margin: 0.8rem 0 0.2rem;
+  color: var(--gold);
+  font-family: Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 1.7rem;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.question {
+  margin: 0.25em 0 0.4em;
+  font-family: Fraunces, "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.sub,
+.progress,
+.quiet {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.quiet { margin-top: 18px; }
+
+.big-answer {
+  margin: 0.2em 0;
+  font-family: Fraunces, Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  background: #241910;
+  padding: 0.9rem 1rem;
+  font-size: 1.35rem;
+}
+
+textarea {
+  width: 100%;
+  min-height: 9rem;
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  background: #241910;
+  padding: 0.9rem 1rem;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+input.amount {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 2.6rem;
+  font-weight: 650;
+  letter-spacing: -0.04em;
+}
+
+.primary,
+.text-button {
+  border: 0;
+  border-radius: 999px;
+}
+
+.primary {
+  min-height: 64px;
+  margin-top: 8px;
+  background: var(--gold);
+  color: var(--gold-ink);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.text-button {
+  align-self: flex-start;
+  margin-top: 8px;
+  padding: 0;
+  background: transparent;
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.form-error {
+  min-height: 1.3em;
+  margin: 0;
+  color: var(--warn);
+  font-weight: 700;
+}
+
+.form-error:empty { display: none; }
+
+.ranking,
+.recap {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rank {
+  display: grid;
+  grid-template-columns: 2rem 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 0.7rem 0.85rem;
+  border-radius: 16px;
+  background: var(--raise);
+}
+
+.rank.winner {
+  background: var(--gold);
+  color: var(--gold-ink);
+}
+
+.rank.me {
+  box-shadow: inset 0 0 0 2px var(--gold);
+}
+
+.rank.winner.me {
+  box-shadow: inset 0 0 0 2px var(--gold-ink);
+}
+
+.place,
+.amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.show {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.missing { color: var(--muted); }
+
+.recap li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.recap .n {
+  color: var(--gold);
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.recap .q {
+  display: block;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.recap .a {
+  display: block;
+  font-weight: 700;
+}
+
+.status { font-size: 1.2rem; }
